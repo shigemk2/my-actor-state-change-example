@@ -1,7 +1,5 @@
 package com.example
 
-import akka.actor.ActorSystem
-import akka.actor.Props
 import akka.actor.Actor
 import akka.event.Logging
 
@@ -18,7 +16,21 @@ class MyActor extends Actor {
     }
     case _ => {
       log.info("unbecome angry")
-      context.become
+      context.unbecome
+    }
+  }
+
+  def happy: Receive = {
+    case "be angry" => {
+      log.info("happy -> angry")
+      context.become(angry)
+    }
+    case "be happy" => {
+      log.info("already happy")
+    }
+    case _ => {
+      log.info("unbecome happy")
+      context.unbecome
     }
   }
 }
