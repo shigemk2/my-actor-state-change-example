@@ -33,4 +33,17 @@ class MyActor extends Actor {
       context.unbecome
     }
   }
+
+  def receive = {
+    case "be angry" => {
+      log.info("become angry")
+      context.become(angry)
+    }
+    case "be happy" => {
+      log.info("become happy")
+      context.become(happy)
+    }
+    case _ => {
+    }
+  }
 }
