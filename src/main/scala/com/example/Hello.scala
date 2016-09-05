@@ -22,9 +22,13 @@ object Hello {
     Thread.sleep(1000)
 
     actor ! "be angry"
-    actor ! "dummy"
     Thread.sleep(1000)
     actor ! "dummy"
+    Thread.sleep(1000)
+    actor ! "be angry"
+    Thread.sleep(1000)
+    actor ! "dummy"
+    Thread.sleep(1000)
     actor ! "be happy"
 
     system.terminate
